@@ -1,5 +1,7 @@
 import os
+import cv2
 from models.subject import Subject
+import numpy as np
 
 class BaseLoader:
 
@@ -18,12 +20,20 @@ class BaseLoader:
 				images = os.listdir(self.base_path + '/' + directory + '/' + side)
 				images.sort()
 				if side == 'L':
-					subject.left_image_paths = images
+					left_images = []
+					for image in images:
+						left_images.append(self.base_path + '/' + directory + '/' + side + '/' + image)
+					subject.left_image_paths = left_images
 				elif side == 'R':
-					subject.right_image_paths = images
+					right_images = []
+					for image in images:
+						right_images.append(self.base_path + '/' + directory + '/' + side + '/' + image)
+					subject.right_image_paths = right_images
 			self.subjects.append(subject)
-			#print('subject_loaded ' + subject.subject_id)
 
 
-base_load = BaseLoader('CASIA-Iris-Lamp-100')
-print(base_load.subjects[0])
+"""base_load = BaseLoader('CASIA-Iris-Lamp-100')
+image = cv2.imread(base_load.subjects[0].right_image_paths[0])
+print(base_load.subjects[0].right_image_paths[0])
+cv2.imshow('iris' , image)
+cv2.waitKey(0)"""
