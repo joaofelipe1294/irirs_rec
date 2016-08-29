@@ -42,20 +42,20 @@ def pupil_detection(image_path):
 
 
 base = BaseLoader('CASIA-Iris-Lamp-100')
-for subject in base.subjects:
+"""for subject in base.subjects:
 	print(subject.subject_id)
 	left_image_path = subject.left_image_paths[0]
-	#image_left = PreProcessor.process(left_image_path)
+	image_left = PreProcessor.process(left_image_path)
 	
-	right_image_path = subject.right_image_paths[0]
-	image_right = PreProcessor.process(right_image_path)
-	#cv2.imshow('image_left' , image_left)
-	cv2.imshow('image_right' , image_right)
-	cv2.waitKey(0)
+	#right_image_path = subject.right_image_paths[0]
+	#image_right = PreProcessor.process(right_image_path)
+	cv2.imshow('image_left' , image_left)
+	#cv2.imshow('image_right' , image_right)
+	cv2.waitKey(0)"""
 
-#subject = base.subjects[37]
-#image_path = subject.left_image_paths[0]
-#pre_processed_image = PreProcessor.process(image_path)
+subject = base.subjects[2]
+image_path = subject.left_image_paths[0]
+pre_processed_image = PreProcessor.process(image_path)
 
 """subjects = base.subjects[0:25]
 for subject in subjects:

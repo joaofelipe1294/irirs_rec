@@ -20,7 +20,6 @@ class PreProcessor:
 		white_pupil = invert_threshold + floodfill_image                         #filling pupil 
 		black_pupil = cv2.bitwise_not(white_pupil)                               #invert white_pupil image
 		pre_processed_image = image & black_pupil                                #using logig operation AND between the initial image and the black_pupil to complete the pre processing	
-	
 
 		#cv2.imshow('original' , image)
 		#cv2.imshow('threshold' , threshold_image)

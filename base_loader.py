@@ -30,10 +30,3 @@ class BaseLoader:
 						right_images.append(self.base_path + '/' + directory + '/' + side + '/' + image)
 					subject.right_image_paths = right_images
 			self.subjects.append(subject)
-
-
-"""base_load = BaseLoader('CASIA-Iris-Lamp-100')
-image = cv2.imread(base_load.subjects[0].right_image_paths[0])
-print(base_load.subjects[0].right_image_paths[0])
-cv2.imshow('iris' , image)
-cv2.waitKey(0)"""
