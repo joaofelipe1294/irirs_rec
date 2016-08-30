@@ -19,7 +19,17 @@ class PreProcessor:
 			
 		white_pupil = invert_threshold + floodfill_image                         #filling pupil 
 		black_pupil = cv2.bitwise_not(white_pupil)                               #invert white_pupil image
-		pre_processed_image = image & black_pupil                                #using logig operation AND between the initial image and the black_pupil to complete the pre processing	
+		#and_processed_image = image & black_pupil                                #using logig operation AND between the initial image and the black_pupil to complete the pre processing	
+
+
+		kernel = np.ones((9 , 9) , np.uint8)
+		open_image = cv2.morphologyEx(black_pupil , cv2.MORPH_OPEN , kernel)
+		
+		out = open_image & black_pupil
+
+		#cv2.imshow('opening' , open_image)
+		#cv2.imshow('out' ,image & out)
+		#cv2.waitKey(0)
 
 		#cv2.imshow('original' , image)
 		#cv2.imshow('threshold' , threshold_image)
@@ -29,5 +39,7 @@ class PreProcessor:
 		#cv2.imshow('black pupil' , black_pupil)
 		#cv2.imshow('pre_processed' , pre_processed_image)
 		#cv2.waitKey(0)
-		
-		return pre_processed_image
+			
+
+		#return pre_processed_image
+		return image & out
