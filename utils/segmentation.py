@@ -86,7 +86,7 @@ class Segmentation:
 		#compute pupil_centroid
 		if min_ray == None or max_ray == None:
 			raise Exception('The parameters that define max_ray and min_ray were not informed')
-		rgb_image = cv2.imread(self.image_path)                        #reading image that can show the circle that identify the pupil
+		#rgb_image = cv2.imread(self.image_path)                        #reading image that can show the circle that identify the pupil
 		height , width = self.original_image.shape[:2]                  #getting number of lines and collumns ,will be used to build houghs_plan
 		houghs_plan = []
 		for x in range(0 , max_ray - min_ray + 1):                      #creating houghs_plan , a list where every element represent a z_index plan  
@@ -122,7 +122,7 @@ class Segmentation:
 		print('pupil centroid computed')
 		#print('raio : ' + str(self.ray))
 		#print('centroid : ' + str(centroid))
-		cv2.circle(rgb_image , tuple([bigger_collumn , bigger_line]) , self.pupil_ray , (0,255,0))        #printing a circle over the pupil into rgb_image
-		cv2.circle(rgb_image , tuple([bigger_collumn , bigger_line]) , 5 , (0,0,255) , -1)     #printing pupil centroid into rgb_image
-		cv2.imshow('image_class' , rgb_image)
-		cv2.waitKey(0)
+		#cv2.circle(rgb_image , tuple([bigger_collumn , bigger_line]) , self.pupil_ray , (0,255,0))        #printing a circle over the pupil into rgb_image
+		#cv2.circle(rgb_image , tuple([bigger_collumn , bigger_line]) , 5 , (0,0,255) , -1)     #printing pupil centroid into rgb_image
+		#cv2.imshow('image_class' , rgb_image)
+		#cv2.waitKey(0)

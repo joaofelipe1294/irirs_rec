@@ -62,7 +62,7 @@ import math
 		cv2.waitKey(0)
 """
 base = BaseLoader('CASIA-Iris-Lamp-100')
-subject = base.subjects[30]
+subject = base.subjects[0]
 image_path = subject.left_image_paths[0]
 segmentation = Segmentation(image_path=image_path)
 segmentation.houghs_transform(min_ray = 40 , max_ray = 70)
