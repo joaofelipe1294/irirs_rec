@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 import math
 
-def houghs_transform(image_path = None , min_ray = None ,max_ray = None):
+"""def houghs_transform(image_path = None , min_ray = None ,max_ray = None):
 		#compute pupil_centroid
 		if min_ray == None or max_ray == None:
 			raise Exception('Os parametros referentes ao raio maxio e/ou minimo nao foram informados')
@@ -60,11 +60,11 @@ def houghs_transform(image_path = None , min_ray = None ,max_ray = None):
 		#cv2.imshow('hough_plan' , hough_plan)
 		cv2.imshow('image_method' , rgb_image)
 		cv2.waitKey(0)
-
+"""
 base = BaseLoader('CASIA-Iris-Lamp-100')
 subject = base.subjects[30]
 image_path = subject.left_image_paths[0]
 segmentation = Segmentation(image_path=image_path)
 segmentation.houghs_transform(min_ray = 40 , max_ray = 70)
 segmentation.pre_process()
-houghs_transform(image_path = image_path , min_ray = 40 , max_ray = 70)
+#houghs_transform(image_path = image_path , min_ray = 40 , max_ray = 70)

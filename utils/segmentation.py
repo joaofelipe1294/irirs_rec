@@ -125,6 +125,4 @@ class Segmentation:
 		cv2.circle(rgb_image , tuple([bigger_collumn , bigger_line]) , self.pupil_ray , (0,255,0))        #printing a circle over the pupil into rgb_image
 		cv2.circle(rgb_image , tuple([bigger_collumn , bigger_line]) , 5 , (0,0,255) , -1)     #printing pupil centroid into rgb_image
 		cv2.imshow('image_class' , rgb_image)
-		#cv2.waitKey(0)
-
-		
+		cv2.waitKey(0)
