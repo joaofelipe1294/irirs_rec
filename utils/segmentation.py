@@ -48,7 +48,7 @@ class Segmentation:
 
 
 
-	"""def houghs_transform(self):
+	def houghs_transform(self): #need to be refactored DO NOT USE !
 		#compute pupil_centroid
 		rgb_image = cv2.imread(self.image_path)                    #reading image that can show the circle that identify the pupil
 		height , width = self.original_image.shape[:2]             #getting number of lines and collumns ,will be used to build houghs_plan
@@ -79,14 +79,14 @@ class Segmentation:
 		#cv2.circle(rgb_image , tuple([bigger_collumn , bigger_line]) , 5 , (0,0,255) , -1)
 		#cv2.imshow('hough_plan' , hough_plan)
 		#cv2.imshow('image' , rgb_image)
-		#cv2.waitKey(0)"""
+		#cv2.waitKey(0)
 		
 		
 	def houghs_transform(self , min_ray = None ,max_ray = None):
 		#compute pupil_centroid
 		if min_ray == None or max_ray == None:
 			raise Exception('The parameters that define max_ray and min_ray were not informed')
-		#rgb_image = cv2.imread(self.image_path)                        #reading image that can show the circle that identify the pupil
+		rgb_image = cv2.imread(self.image_path)                        #reading image that can show the circle that identify the pupil
 		height , width = self.original_image.shape[:2]                  #getting number of lines and collumns ,will be used to build houghs_plan
 		houghs_plan = []
 		for x in range(0 , max_ray - min_ray + 1):                      #creating houghs_plan , a list where every element represent a z_index plan  
